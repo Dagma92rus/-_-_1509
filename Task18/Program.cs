@@ -4,6 +4,8 @@
 
 Console.WriteLine("Введите номер четверти");
 int quarter = Convert.ToInt32(Console.ReadLine());
+string result = Conditions(quarter);
+System.Console.WriteLine(result);
 
 // int Conditions(int arg)
 //     {
@@ -15,12 +17,24 @@ int quarter = Convert.ToInt32(Console.ReadLine());
 //         arg == 4 ? return 4
 //         }
 //     }
+string Conditions(int arg)
+{
+    if (arg == 1) return "Диапазон координат: X > 0; Y > 0";
+    if (arg == 2) return "Диапазон координат: X < 0; Y > 0";
+    if (arg == 3) return "Диапазон координат: X < 0; Y < 0";
+    if (arg == 4) return "Диапазон координат: X > 0; Y < 0";
+    else return "Некорректный номер четверти, повторите ввод";
+}
 
-    if (quarter == 1) Console.WriteLine("Диапазон координат: X > 0; Y > 0");
-    else if (quarter == 2) Console.WriteLine("Диапазон координат: X < 0; Y > 0");
-    else if (quarter == 2) Console.WriteLine("Диапазон координат: X < 0; Y < 0");
-    else if (quarter == 2) Console.WriteLine("Диапазон координат: X > 0; Y < 0");
-    else Console.WriteLine("Некорректный номер четверти, повторите ввод");
+// string QuarterStr(int x, int y)
+// {
+//     if( x > 0 && y > 0) return "Первая четверть";
+//     if( x < 0 && y > 0) return "Вторая четверть";
+//     if( x < 0 && y < 0) return "Третья четверть";
+//     if( x > 0 && y < 0) return "Четвёртая четверть";
+//     return "Введены некоректные координаты";
+// }
+
 
 
 
