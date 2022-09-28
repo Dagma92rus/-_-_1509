@@ -14,8 +14,6 @@ int number = Convert.ToInt32(System.Console.ReadLine()); // шаг 1: // Вво�
 
 
 
-
-
 int QuantityDigit(int arg) // шаг 2: 1) подставляем 12821; 2) узнаём количество цифр // получаем "5"
 {
     int counter = default;
@@ -27,9 +25,7 @@ int QuantityDigit(int arg) // шаг 2: 1) подставляем 12821; 2) уз
     return counter;
 }
 int quantityDigit = QuantityDigit(number); // присваиваем "5" (quantityDigit) 
-System.Console.WriteLine("Введённое число состоит из " + quantityDigit + "цифр"); 
-
-
+System.Console.WriteLine("Введённое число состоит из " + quantityDigit + "цифр");
 
 
 
@@ -46,15 +42,13 @@ else System.Console.WriteLine($"Число {quantityDigit} нечётное");
 
 
 
-
-
 int[] WritingToArray(int num, int digit) // шаг 4: запишем цифры введённого пользователем числа как элементы массива
 {
     int[] arr = new int[digit];
     int res = num;
     for (int i = 0; i < digit; i++)
     {
-        arr[digit-i-1] = res % 10;
+        arr[digit - i - 1] = res % 10;
         // Console.Write(arr[digit-i-1] + " "); // печатает массив от конца к началу
         res = res / 10;
     }
@@ -69,23 +63,27 @@ for (int i = 0; i < 5; i++) // проверил работает ли arrayNew
 
 
 
-int PalindromeOdd(int[] arr) // шаг 5.1: проверка на палиндром для нечётного числа/Odd
-{   
+int PalindromeOdd(int[] arr) // шаг 5.1: проверка на палиндром для числа с нечётным количеством цифр/Odd
+{
     int bottomDigit = arr[0];
-    int topDigit = arr[arr.Length-1];
+    int topDigit = arr[arr.Length - 1];
     int oddEven = -1;
     int i = 0;
-        if (bottomDigit == topDigit && i < arr.Length/2)
+    while (i < arr.Length / 2)
+    {
+        if (bottomDigit == topDigit && i < arr.Length / 2)
         {
-            bottomDigit = arr[i+1];
-            topDigit = arr[arr.Length-i-1];
+            bottomDigit = arr[i + 1];
+            topDigit = arr[arr.Length - i - 1];
             oddEven = 1;
         }
         else oddEven = 0;
-        return oddEven;
+        i++;
+    }
+    return oddEven;
 }
 
-if (PalindromeOdd(arrayNew) == 1) System.Console.WriteLine(" > проверка на палиндром > " + "Yes"); 
-else System.Console.WriteLine(" > проверка на палиндром > " + "No"); 
+if (PalindromeOdd(arrayNew) == 1) System.Console.WriteLine(" > проверка на палиндром > " + "Yes");
+else System.Console.WriteLine(" > проверка на палиндром > " + "No");
 
-// шаг 5.2: проверка на палиндром для чётного числа/Even (купите Premium)
+// шаг 5.2: проверка на палиндром для числа с чётным количеством цифр/Odd/Even (купите Premium)
